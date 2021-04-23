@@ -16,7 +16,7 @@ function myFunction() {
 myFunction();
 
 //🚀🚀🚀 ⬇️ 📝 Explanation ⬇️ 📝 🚀🚀🚀: 
-
+//Through closure, variables of a higher scope are passed to lower, but variables cannot reach inside their children to get values.
 
 
 
@@ -28,9 +28,18 @@ myFunction();
     
 For example, `summation(4)` should return 10 because 1+2+3+4 is 10. Note, you may use a for loop for this function if you wish */
 
-function summation(/*Your Code Here*/) {
-  /*Your Code Here*/
+function summation(number) {
+  /* This works because of the quadratic function */
+  return number * (number+1) /2;
+  }
 
+  function summationTheHardWay (number) {
+    let sum = 0;
+    for (let i =0; i<number; i++) {
+      sum += i;
+    }
+
+    return sum;
   }
  
 
@@ -56,8 +65,12 @@ const zooAnimals = [
   displayNames will be an array of strings, and each string should follow this pattern: "name: {name}, scientific: {scientific name}"
   */
 
-  function animalNames(/*Your Code Here*/){
-    /*Your Code Here*/
+  function animalNames(data){
+    let displayNames =[];
+
+    data.forEach(item => displayNames.push(`name: ${item.animal_name}, scientific: ${item.scientific_name}`))
+
+    return displayNames;
   }
   
 
@@ -67,8 +80,11 @@ const zooAnimals = [
   For example: ['jackal, asiatic', .....]
   */
 
-  function lowerCaseNames(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowerCaseNames(data){
+    let lcn = [];
+    lcn = data.map (item => item.animal_name.toLowerCase())
+
+    return lcn;
   }
   
   
@@ -77,8 +93,12 @@ const zooAnimals = [
   Using lowPopulationAnimals use .filter() to create a new array of objects which contains only the animals with a population of less than 5.
   */
 
-  function lowPopulationAnimals(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowPopulationAnimals(data){
+    let lowPop = [];
+
+    lowPop = data.filter(item => (item.population < 5));
+
+    return lowPop;
   }
   
 
@@ -88,8 +108,12 @@ const zooAnimals = [
   Remember the reduce method takes two arguments: a callback (which itself takes two args - the accumulator and the item), and an initial value for the count.
   */
 
-  function USApop(/*Your Code Here*/){
-    /*Your Code Here*/
+  function USApop(data){
+    let totalPop =0;
+
+    totalPop= data.reduce((totalPop, item) => totalPop += item.population,0);
+
+    return totalPop;
   }
   
   
